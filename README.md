@@ -1,97 +1,55 @@
-# Cyberpunk Uzi Experience
+# 🚀 Cyberpunk Uzi Experience 
 
-Uma experiência full stack que reúne uma interface visual futurística, imersiva e premium, com um backend robusto que demonstra as habilidades de um Full Stack Developer Junior. Inspirado na energia de LIL UZI, o projeto entrega uma vivência interativa com animações neon, gradientes dinâmicos e um player de áudio único, inspirado em designs vetorizados como os do Apple Music e Spotify.
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI/CD](https://github.com/FuturoDevJunior/CIBERPIKA/actions/workflows/main.yml/badge.svg)](https://github.com/FuturoDevJunior/CIBERPIKA/actions)
 
-## Visão Geral
+Immersive full-stack experience blending cutting-edge web development with Lil Uzi Vert's cyberpunk aesthetic. Professional-grade implementation showcasing modern web practices.
 
-O projeto oferece:
+## ✨ Features
 
-- **Interface Imersiva e Futurista:** Página inicial com animações neon, gradientes dinâmicos e um *player* de áudio premium, proporcionando uma experiência multisensorial.
-- **Backend Robusto com Express e TypeScript:** Servidor configurado com práticas de segurança, logging e uma API para consulta de status.
-- **Testes Automatizados:** Testes implementados com Jest, ts-jest e Supertest para garantir a integridade do sistema.
-- **Deploy Flexível:** Estrutura preparada para hospedar o frontend via GitHub Pages e o backend em plataformas como Heroku, Vercel ou Render.
+- **Cinematic UI**  
+Neon animations, particle systems, dynamic gradients
+- **Interactive Audio Player**  
+Custom Web Audio API integration
+- **Enterprise Security**  
+CSP, X-Content-Type-Options, X-Frame-Options
+- **Responsive Design**  
+Mobile-first approach, tested up to 4K
 
-## Tecnologias Utilizadas
+## 🛠 Tech Stack
 
-- **Backend:** Node.js, Express, TypeScript, dotenv, helmet, morgan, compression.
-- **Testes:** Jest, ts-jest, Supertest.
-- **Frontend:** HTML5, CSS3, JavaScript.
-- **Controle de Versão:** Git
+**Frontend:**  
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript)
 
-## Estrutura do Projeto
+**Backend:**  
+![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=nodedotjs)
+![Express](https://img.shields.io/badge/-Express-000000?logo=express)
+![Jest](https://img.shields.io/badge/-Jest-C21325?logo=jest)
 
-```text
-CIBERPIK/
-├── src/
-│   ├── app.ts         # Servidor Express
-│   └── app.test.ts    # Testes unitários com Jest e Supertest
-├── public/
-│   ├── index.html     # Interface da aplicação com efeitos neon e player premium
-│   └── 20.webm        # Arquivo de áudio (coloque-o na pasta public)
-├── package.json       # Dependências e scripts do projeto
-├── tsconfig.json      # Configurações do TypeScript
-└── README.md          # Documentação do projeto
+## 🚀 Deployment
+
+1. Clone repo:
+```bash
+git clone https://github.com/FuturoDevJunior/CIBERPIKA.git
+```
+2. Install dependencies:
+```bash
+npm install
+```
+3. Start dev server:
+```bash
+npm run dev
 ```
 
-## Scripts NPM
+**Production Build:**
+```bash
+npm run build && npm start
+```
 
-- **Instalação:** `npm install`
-- **Build:** `npm run build` (compila o projeto TypeScript para JavaScript)
-- **Start:** `npm start` (inicia o servidor compilado)
-- **Desenvolvimento:** `npm run dev` (executa o servidor com ts-node)
-- **Testes:** `npm test`
-
-## Como Rodar o Projeto
-
-1. **Clonando o Repositório:**
-
-   ```sh
-   git clone https://github.com/SeuUsuario/NomeDoProjeto.git
-   cd NomeDoProjeto
-   ```
-
-1. **Instalando Dependências:**
-
-   ```sh
-   npm install
-   ```
-
-1. **Compilando e Executando o Servidor:**
-
-   ```sh
-   npm run build
-   npm start
-   ```
-
-   Para desenvolvimento:
-
-   ```sh
-   npm run dev
-   ```
-
-1. **Executando os Testes:**
-
-   ```sh
-   npm test
-   ```
-
-## Deploy
-
-- **Frontend:** Hospede o conteúdo da pasta `/public` no [GitHub Pages](https://pages.github.com/).
-- **Backend:** Utilize serviços como [Heroku](https://www.heroku.com/), [Vercel](https://vercel.com/) ou [Render](https://render.com/) para implantar o servidor Node.js.
-
-## Personalização
-
-- **Áudio:** Para alterar o áudio de fundo, substitua o arquivo `20.webm` na pasta **public**.
-- **Interface:** Ajuste os estilos conforme sua identidade visual.
-
-## Contribuição
-
-Contribuições são bem-vindas! Envie issues ou pull requests para sugerir melhorias e correções.
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+## 📄 License
+MIT © 2024 [FerreiraDevG](https://linkedin.com/in/DevFerreiraG)
 
 ## Contato
 
