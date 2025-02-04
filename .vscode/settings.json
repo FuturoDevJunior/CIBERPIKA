@@ -1,0 +1,4 @@
+{
+    "editor.semanticHighlighting.enabled": "configuredByTheme",
+    "go.installDependenciesWhenBuilding": true
+}

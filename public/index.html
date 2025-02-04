@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Uzi Experience | DevFerreiraG</title>
+  <meta name="description" content="Experiência imersiva inspirada na energia de Lil Uzi Vert com tecnologia de ponta e design futurista">
+  
+  <!-- Fontes e Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos -->
+  <style>
+    :root {
+      --neon-pink: #ff00ff;
+      --cyber-purple: #8a2be2;
+      --matrix-green: #00ff9d;
+      --dark-bg: #0a0a0f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--dark-bg);
+      color: white;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .cyber-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(
+        45deg,
+        var(--neon-pink),
+        var(--cyber-purple),
+        var(--matrix-green)
+      );
+      z-index: -2;
+      opacity: 0.1;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .cyber-title {
+      font-size: 4rem;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, #ff00ff, #00ff9d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 2rem;
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    .cyber-subtitle {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .cyber-player {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cyber-player.playing {
+      animation: pulse 1.5s infinite;
+    }
+
+    .cyber-player i {
+      font-size: 2.5rem;
+      color: var(--matrix-green);
+      margin-left: 5px;
+    }
+
+    @keyframes textGlow {
+      from { text-shadow: 0 0 10px var(--neon-pink); }
+      to { text-shadow: 0 0 30px var(--matrix-green); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0,255,157,0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(0,255,157,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,255,157,0); }
+    }
+
+    /* Efeitos responsivos e detalhes premium */
+    @media (max-width: 768px) {
+      .cyber-title { font-size: 2.5rem; }
+      .cyber-subtitle { font-size: 1.2rem; }
+    }
+
+    .watermark {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transform: rotate(-5deg);
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .watermark:hover {
+      color: var(--matrix-green);
+      transform: rotate(0deg) scale(1.1);
+      opacity: 1;
+      text-shadow: 0 0 15px var(--matrix-green);
+    }
+  </style>
+</head>
+<body>
+  <div class="cyber-gradient"></div>
+  <canvas class="particles"></canvas>
+  <audio id="background-music" src="20.webm" loop></audio>
+  
+  <main class="hero-section">
+    <h1 class="cyber-title">Uzi Experience</h1>
+    <p class="cyber-subtitle">
+      Mergulhe em uma dimensão cyberpunk onde a música e tecnologia se fundem em uma experiência única
+    </p>
+    
+    <div class="cyber-player" id="toggle-btn">
+      <i class="fas fa-play"></i>
+    </div>
+  </main>
+
+  <a href="https://linkedin.com/in/DevFerreiraG" target="_blank" rel="noopener noreferrer" class="watermark">DevFerreiraG</a>
+
+  <script>
+    // Efeito de partículas interativo
+    class ParticleSystem {
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.init();
+      }
+
+      resize() {
+        this.width = this.canvas.width = window.innerWidth;
+        this.height = this.canvas.height = window.innerHeight;
+      }
+
+      init() {
+        for(let i = 0; i < 100; i++) {
+          this.particles.push({
+            x: Math.random() * this.width,
+            y: Math.random() * this.height,
+            size: Math.random() * 2 + 1,
+            speedX: (Math.random() - 0.5) * 0.5,
+            speedY: (Math.random() - 0.5) * 0.5
+          });
+        }
+        this.animate();
+      }
+
+      animate() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        this.ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        
+        this.particles.forEach(particle => {
+          particle.x += particle.speedX;
+          particle.y += particle.speedY;
+
+          if(particle.x < 0 || particle.x > this.width) particle.speedX *= -1;
+          if(particle.y < 0 || particle.y > this.height) particle.speedY *= -1;
+
+          this.ctx.beginPath();
+          this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    const music = document.getElementById('background-music');
+    const toggleBtn = document.getElementById('toggle-btn');
+    new ParticleSystem(document.querySelector('.particles'));
+
+    music.volume = 0.15;
+    
+    toggleBtn.addEventListener('click', function() {
+      if(music.paused) {
+        music.play();
+        this.classList.add('playing');
+        this.innerHTML = '<i class="fas fa-pause"></i>';
+      } else {
+        music.pause();
+        this.classList.remove('playing');
+        this.innerHTML = '<i class="fas fa-play"></i>';
+      }
+    });
+  </script>
+</body>
+</html>
