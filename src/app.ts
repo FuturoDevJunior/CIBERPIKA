@@ -57,4 +57,11 @@ if (process.env.NODE_ENV !== 'test') {
   });
 }
 
+declare module 'compression' {
+  interface CompressionOptions {
+    level?: number;
+    memLevel?: number;
+  }
+}
+
 export default app; 
