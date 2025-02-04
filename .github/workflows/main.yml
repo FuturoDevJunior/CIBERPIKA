@@ -1,8 +1,10 @@
 name: CI/CD Pipeline
-
+- name: Attest Build Provenance
+  uses: actions/attest-build-provenance@v2.2.0
 on: [push]
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
