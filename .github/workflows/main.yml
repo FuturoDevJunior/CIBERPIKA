@@ -1,28 +1,14 @@
 name: CI/CD Pipeline
-
-on:
-  push:
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do repositório
-        uses: actions/checkout@v2
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-
-      - name: Instalar dependências
-        run: npm ci
-
-      - name: Build do projeto
-        run: npm run build
-
-      - name: Executar testes
-        run: npm test
-
-      - name: Attest Build Provenance
-        uses: actions/attest-build-provenance@v2.2.0 
+          node-version: 18
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
