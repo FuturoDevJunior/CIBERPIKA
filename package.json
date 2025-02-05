@@ -4,11 +4,12 @@
   "description": "Projeto Cyberpunk interativo inspirado no videoclipe '20 Min' do LIL UZI, com uma UI/UX futurista e design inovador.",
   "main": "dist/app.js",
   "scripts": {
-    "start": "node dist/app.js",
-    "build": "vite build",
     "dev": "vite",
-    "test": "jest",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "start": "node dist-server/app.js"
   },
   "dependencies": {
     "compression": "^1.7.4",

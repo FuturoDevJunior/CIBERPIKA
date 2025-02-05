@@ -1,14 +1,9 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.client.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "dist/server",
-    "types": ["node"],
-    "baseUrl": "./src/server",
-    "paths": {
-      "@server/*": ["*"]
-    }
+    "module": "CommonJS",
+    "outDir": "./dist-server",
+    "types": ["node"]
   },
-  "include": ["src/server/**/*.ts"],
-  "exclude": ["**/*.test.ts"]
+  "include": ["server"]
 } 
